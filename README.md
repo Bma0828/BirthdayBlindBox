@@ -15,7 +15,7 @@
 * **Probability version (shows live chances & a small curve)**
 
   * `index.inline.prob.html`
-  * `app.inline.prob.patched.js`
+  * `app.inline.prob.js`
   * `style.cute.css`
 
 > You can use either version. Both work offline.
