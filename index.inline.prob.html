@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>U1's Birthday Blind Box Challenge</title>
+  <link rel="stylesheet" href="./style.cute.css"/>
+  <style>
+    .layout { display: grid; grid-template-columns: 1fr 320px; gap: 18px; align-items: start; }
+    @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+    .card { background: #fff; border:1px solid rgba(255,107,156,0.25); border-radius: 14px; padding: 14px; }
+    .card h3 { margin: 0 0 8px 0; font-size: 16px; color:#ff6b9c; }
+    .prob { font-weight: 800; }
+    canvas { width:100%; height:220px; }
+    .note { color:#718096; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>U1's Birthday Blind Box Challenge!!!</h1>
+      <div class="stats">
+        <div>Balance: $<span id="balance">150</span></div>
+        <div>Opened Boxes: <span id="openedCount">0</span></div>
+        <div>Remaining Pool: <span id="remainingPool"></span></div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <main id="view"></main>
+      <aside>
+        <div class="card">
+          <h3>Win Chance (Threshold $280)</h3>
+          <div>Without guess bonus: <span class="prob" id="pNoGuess">—</span></div>
+          <div>With random-guess bonus: <span class="prob" id="pGuess">—</span></div>
+          <div class="note" style="margin-top:6px;">Updates after every step. Random-guess assumes +$10 with prob. 1/choices.</div>
+          <div class="btnrow" style="margin-top:10px;">
+            <button id="refreshProb" class="ghost">Refresh now</button>
+          </div>
+        </div>
+        <div class="card" style="margin-top:12px;">
+          <h3>Qualification Curve</h3>
+          <canvas id="probChart" width="300" height="220"></canvas>
+          <div class="note">Probability of reaching threshold T (240–320). Pink dot marks T=280.</div>
+        </div>
+      </aside>
+    </div>
+
+    <footer style="margin-top:14px;"><small>© Birthday Game</small></footer>
+  </div>
+  <script src="./app.inline.prob.js"></script>
+</body>
+</html>
